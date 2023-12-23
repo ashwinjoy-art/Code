@@ -1,7 +1,7 @@
-import Package_Graphics_rectangle as re
-import Package_Graphics_circle as c
-import Package_3D_Graphics_cuboid as cb
-import Package_3D_Graphics_sphere as s
+import rectangle as re
+import circle as c
+import trd_graphics.cuboid as cb
+import trd_graphics.sphere as s
 print("Rectangle")
 print("Area:", re.area(5, 6))
 print("Perimeter:", re.perimeter(5, 6))
