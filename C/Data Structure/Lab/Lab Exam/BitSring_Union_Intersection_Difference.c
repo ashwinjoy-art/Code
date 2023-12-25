@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int superSet[20],superSetSize=0,
-setA[20],setASize=0,
+int superSet[20],superSetSize=0,setA[20],setASize=0,
 setB[20],setBSize=0,
 bitStringA[20],bitStringB[20],bitStringUnion[20],bitStringIntersection[20],bitStringDifference[20];
 int isBitStringReady=0;

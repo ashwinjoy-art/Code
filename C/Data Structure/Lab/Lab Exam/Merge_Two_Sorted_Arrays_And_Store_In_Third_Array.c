@@ -9,7 +9,7 @@ int main()
 	int total;
 	int size=0;
 	//ARRAY ONE ELEMET GET
-	printf("Enter how much elemenet in first array : ");
+	printf("Enter size of the first array : ");
 	scanf("%d",&a1_size);
 	printf("Enter %d elements\n",a1_size);
 	for(i=0;i<a1_size;i++)
@@ -18,7 +18,7 @@ int main()
 		scanf("%d",&array_1[i]);
 	}
 	//ARRAY TWO ELEMENT GETTING
-	printf("Enter how much elemenet in second array : ");
+	printf("Enter size of the second array : ");
 	scanf("%d",&a2_size);
 	printf("Enter %d elements\n",a2_size);
 	for(i=0;i<a2_size;i++)
