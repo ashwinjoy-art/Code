@@ -6,7 +6,6 @@ setA[20],setASize=0,
 setB[20],setBSize=0,
 bitStringA[20],bitStringB[20],bitStringUnion[20],bitStringIntersection[20],bitStringDifference[20];
 int isBitStringReady=0;
-//method declarations 
 void getSet(int arr[],int setSize);
 void processChoice(int choice);
 void printAllSets();
