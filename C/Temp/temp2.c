@@ -1,127 +1,151 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define DEGREE 3
-// Structure for a B-tree node
-struct BTreeNode 
+#include<stdio.h>
+#include<stdlib.h>
+struct node
 {
-    int *keys;
-    struct BTreeNode **children;
-    int numKeys;
-    int isLeaf;
-};
-struct BTreeNode *root = NULL;
-// Function prototypes
-struct BTreeNode *createNode(int isLeaf);
-void splitChild(struct BTreeNode *x, int i, struct BTreeNode *y);
-void insertNonFull(struct BTreeNode *x, int key);
-void insert(int key);
-void printBTree(struct BTreeNode *root, int level);
-int main() 
-{
-    int key;
-    printf("Enter elements to insert into B-tree (Enter -1 to stop):\n");
-    while (1) 
-    {
-        scanf("%d", &key);
-
-        if (key == -1)
-            break;
-        insert(key);
-        printf("Inserted: %d\n", key);
-        printBTree(root, 0);
-        printf("\n");
-    }
-    return 0;
+struct node *rep;
+struct node *next;
+int data;
 }
-// Helper function to create a new B-tree node
-struct BTreeNode *createNode(int isLeaf) {
-    struct BTreeNode *newNode = (struct BTreeNode *)malloc(sizeof(struct BTreeNode));
-    newNode->keys = (int *)malloc(sizeof(int) * (2 * DEGREE - 1));
-    newNode->children = (struct BTreeNode **)malloc(sizeof(struct BTreeNode *) * (2 * DEGREE));
-    newNode->numKeys = 0;
-    newNode->isLeaf = isLeaf;
-    return newNode;
-}
-// Helper function to insert a key into a non-full B-tree node
-void insertNonFull(struct BTreeNode *x, int key) 
+*heads[50],*tails[50];
+static int countRoot=0;
+void makeSet(int x)
 {
-    int i = x->numKeys - 1;
-    if (x->isLeaf) 
-    {
-        while (i >= 0 && key < x->keys[i]) 
-        {
-            x->keys[i + 1] = x->keys[i];
-            i--;
-        }
-        x->keys[i + 1] = key;
-        x->numKeys++;
-    } 
-    else 
-    {
-        while (i >= 0 && key < x->keys[i])
-            i--;
-        i++;
-        if (x->children[i]->numKeys == (2 * DEGREE - 1)) 
-        {
-            splitChild(x, i, x->children[i]);
-            if (key > x->keys[i])
-                i++;
-        }
-        insertNonFull(x->children[i], key);
-    }
+	struct node *new=(struct node *)malloc(sizeof(struct node));
+	new->rep=new;
+	new->next=NULL;
+	new->data=x;
+	heads[countRoot]=new;
+	tails[countRoot++]=new;
 }
-// Helper function to insert a key into the B-tree
-void insert(int key) 
+struct node* find(int a)
 {
-    if (root == NULL) 
-    {
-        root = createNode(1);
-        root->keys[0] = key;
-        root->numKeys = 1;
-    } 
-    else 
-    {
-        if (root->numKeys == (2 * DEGREE - 1)) 
-        {
-            struct BTreeNode *newRoot = createNode(0);
-            newRoot->children[0] = root;
-            splitChild(newRoot, 0, root);
-            root = newRoot;
-        }
-        insertNonFull(root, key);
-    }
+	int i;
+	struct node *tmp=(struct node *)malloc(sizeof(struct node));
+	for(i=0;i<countRoot;i++)
+{
+	tmp=heads[i];
+	while(tmp!=NULL)
+{
+	if(tmp->data==a)
+	return tmp->rep;
+	tmp=tmp->next;
 }
-// Helper function to split a full child of a B-tree node
-void splitChild(struct BTreeNode *x, int i, struct BTreeNode *y) 
-{
-    struct BTreeNode *z = createNode(y->isLeaf);
-    z->numKeys = DEGREE - 1;
-    for (int j = 0; j < DEGREE - 1; j++)
-        z->keys[j] = y->keys[j + DEGREE];
-    if (!y->isLeaf) 
-    {
-        for (int j = 0; j < DEGREE; j++)
-            z->children[j] = y->children[j + DEGREE];
-    }
-    y->numKeys = DEGREE - 1;
-    for (int j = x->numKeys; j > i; j--)
-        x->children[j + 1] = x->children[j];
-    x->children[i + 1] = z;
-    for (int j = x->numKeys - 1; j >= i; j--)
-        x->keys[j + 1] = x->keys[j];
-    x->keys[i] = y->keys[DEGREE - 1];
-    x->numKeys++;
 }
-// Helper function to print the B-tree (in-order)
-void printBTree(struct BTreeNode *root, int level) 
+return NULL;
+}
+void unionSets(int a,int b)
 {
-    if (root != NULL) 
-    {
-        for (int i = 0; i < root->numKeys; i++) 
-        {
-            printBTree(root->children[i], level + 1);
-            printf("Level %d, Key: %d\n", level, root->keys[i]);
-        }
-        printBTree(root->children[root->numKeys], level + 1);
-    }
+	int i,pos,flag=0,j;
+	struct node *tail2=(struct node *)malloc(sizeof(struct node));
+	struct node *rep1=find(a);
+	struct node *rep2=find(b);
+	if(rep1==NULL||rep2==NULL)
+	{
+		printf("\nElement not present in the DS\n");
+		return;
+	}
+	if(rep1!=rep2)
+	{
+		for(j=0;j<countRoot;j++)
+		{
+			if(heads[j]==rep2)
+			{
+				pos=j;
+				flag=1;
+				countRoot=1;
+				tail2=tails[j];
+				for(i=pos;i<countRoot;i++)
+				{
+					heads[i]=heads[i+1];
+					tails[i]=tails[i+1];
+				}
+			}
+			if(flag==1)
+			break;
+	}
+	for(j=0;j<countRoot;j++)
+	{
+		if(heads[j]==rep1)
+		{
+			tails[j]->next=rep2;
+			tails[j]=tail2;
+			break;
+		}
+	}
+	while(rep2!=NULL)
+	{
+		rep2->rep=rep1;
+		rep2=rep2->next;
+	}
+}
+}
+int search(int x)
+{
+	int i;
+	struct node *tmp=(struct node *)malloc(sizeof(struct node));
+	for(i=0;i<countRoot;i++)
+	{
+		tmp=heads[i];
+		if(heads[i]->data==x)
+			return 1;
+		while(tmp!=NULL)
+		{
+			if(tmp->data==x)
+				return 1;
+			tmp=tmp->next;
+		}
+	}
+	return 0;
+}
+void main()
+{
+	int choice,x,i,j,y,flag=0;
+	do
+	{
+		printf("\n........................\n");
+		printf("\n.......MENU.......\n\n1.Make Set\n2.Display set representatives\n3.Union\n4.Find Set\n5.Exit\n");
+		printf("Enter your choice : ");
+		scanf("%d",&choice);
+		printf("\n|||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
+		switch(choice)
+		{
+		case 1:
+		printf("\nEnter new element : ");
+		scanf("%d",&x);
+		if(search(x)==1)
+			printf("\nElement already present in the disjoint set DS\n");
+		else
+			makeSet(x);
+		break;
+	case 2:
+		printf("\n");
+		for(i=0;i<countRoot;i++)
+			printf("%d ",heads[i]->data);
+		printf("\n");
+		break;
+	case 3:
+		printf("\nEnter first element : ");
+		scanf("%d",&x);
+		printf("\nEnter second element : ");
+		scanf("%d",&y);
+		unionSets(x,y);
+		break;
+	case 4:
+		printf("\nEnter the element :");
+		scanf("%d",&x);
+		struct node *rep=(struct node *)malloc(sizeof(struct node));
+		rep=find(x);
+		if(rep==NULL)
+			printf("\nElement not present in the DS\n");
+		else
+			printf("\nThe representative of %d is %d\n",x,rep->data);
+		break;
+	case 5:
+		exit(0);
+	default:
+		printf("\nWrong choice\n");
+		break;
+	}
+}
+while(1);
 }
