@@ -1,7 +1,7 @@
 n = int(input("Enter the number of words: "))
 list = []
 for i in range(n):
-    x = (input("Enter the word: "))
+    x = input("Enter the word: ")
     list.append(x)
 print(list)
 max = len(list[0])
