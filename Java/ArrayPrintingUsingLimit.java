@@ -8,7 +8,7 @@ public class ArrayPrintingUsingLimit
         System.out.println("Enter the limit: ");
         int limit=sc.nextInt();
         int[] arr = new int[limit];
-        System.out.println("Enter the array elements");
+        System.out.println("Enter the array elements: ");
         for(int i=0;i<limit;i++)
         {
             arr[i]= sc.nextInt();
