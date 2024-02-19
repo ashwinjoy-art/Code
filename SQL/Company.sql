@@ -1,0 +1,12 @@
+CREATE DATABASE COMPANY;
+SHOW DATABASES;
+USE COMPANY;
+CREATE TABLE EMPLOYEE(Emp_No INT PRIMARY KEY, Emp_Name VARCHAR(45), Address VARCHAR(45), Sex VARCHAR(45), Dept VARCHAR(45), Salary INT, DOJ VARCHAR(45), Branch VARCHAR(45));
+SHOW TABLES;
+INSERT INTO EMPLOYEE VALUES(1001,'Arya','Arya House, Ernakulam','M','Sales',16000,'15/01/2015','Ernakulam');
+INSERT INTO EMPLOYEE VALUES(1002,'Sooraj','Sooraj House, Kottayam','M','Sales',18000,'01/05/2004','Kottayam');
+INSERT INTO EMPLOYEE VALUES(1003,'Joju','Hridayam House, Wayanad','M','Sales',20000,'25/12/2016','Wayanad');
+INSERT INTO EMPLOYEE VALUES(1004,'Arjun','Anadham House, Malappuram','M','Sales',25000,'16/02/2010','Malappuram');
+INSERT INTO EMPLOYEE VALUES(1005,'Ashwin','Ashwin House, Kozhikode','M','Sales',19000,'11/06/2008','Kozhikode');
+INSERT INTO EMPLOYEE VALUES(1006,'Benher','Abi House, Kollam','M','Sales',30000,'05/09/2001','Kollam');
+SELECT * FROM EMPLOYEE;
