@@ -1,6 +1,6 @@
 class Box
 {
-    public static void main(String[] args) 
+    public static void main(String args[]) 
     {
         BoxDemo b1=new BoxDemo();
         b1.getData(5.6,3.1,7.2);

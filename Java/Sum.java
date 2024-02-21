@@ -9,8 +9,8 @@ public class Sum
 		System.out.println("Enter two numbers: ");
         int a=s.nextInt();
         int b=s.nextInt();
-        int c=a+b;
-        System.out.println("Result: "+c);
+        int sum=a+b;
+        System.out.println("Result: "+sum);
         s.close();
 	}
 }

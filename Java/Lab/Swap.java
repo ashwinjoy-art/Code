@@ -1,7 +1,7 @@
 import java.util.*;
 public class Swap
 {
-	public static void main (String[]args)
+	public static void main (String[] args)
 	{
 		int num1, num2, temp;
 		Scanner sc = new Scanner(System.in); 

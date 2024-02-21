@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ElementSearch 
 {
-    public static void main(String[] args) 
+    public static void main(String args[]) 
     {
         Scanner scanner = new Scanner(System.in);
         int[] numbers = {10, 5, 8, 3, 7};
