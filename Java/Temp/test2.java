@@ -1,26 +1,26 @@
-import java.util.Scanner;
-
 public class test2 
 {
-    public static void main(String args[]) 
+    public static void main(String[] args) 
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number: ");
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
+        Sample S1 = new Sample();
+        Sample S2 = new Sample();
+        S1.a = 10;
+        S1.b = 20;
+        S2.a = 50;
+        S2.b = 100;
 
-        int result = sum(num1, num2);
-        System.out.println("Result: " + result);
-        sc.close();
-    }
-
-    static int sum(int a, int b) 
-    {
-        int s = a + b;
-        return s;
+        S1.display();
+        S2.display();
     }
 }
 
+class Sample 
+{
+    int a;
+    int b;
 
-
-
+    void display() 
+    {
+        System.out.println(a);
+    }
+}
