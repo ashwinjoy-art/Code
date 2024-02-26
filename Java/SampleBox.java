@@ -1,9 +1,9 @@
-public class ClassObject 
+public class SampleBox 
 {
     public static void main(String[] args) 
     {
-        ClassSample S1 = new ClassSample();
-        ClassSample S2 = new ClassSample();
+        SampleBox1 S1 = new SampleBox1();
+        SampleBox1 S2 = new SampleBox1();
         S1.a = 10;
         S1.b = 20;
         S2.a = 50;
@@ -16,7 +16,7 @@ public class ClassObject
     }
 }
 
-class ClassSample 
+class SampleBox1 
 {
     int a;
     int b;

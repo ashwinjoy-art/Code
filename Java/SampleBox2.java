@@ -1,9 +1,9 @@
-public class ClassSample2
+public class SampleBox2
 {
     public static void main(String[] args) 
     {
-        ClassSampleSub S1 = new ClassSampleSub();
-        ClassSampleSub S2 = new ClassSampleSub();
+        SampleBox3 S1 = new SampleBox3();
+        SampleBox3 S2 = new SampleBox3();
         S1.a = 10;
         S1.b = 20;
         S2.a = 50;
@@ -14,7 +14,7 @@ public class ClassSample2
     }
 }
 
-class ClassSampleSub 
+class SampleBox3
 {
     int a;
     int b;
