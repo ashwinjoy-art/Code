@@ -3,7 +3,7 @@ USE COLLEGE_INFO;
 CREATE TABLE COURSE(Course_ID varchar(15) not null primary key,Course_name varchar(20) not null,Program_ID smallint,Credit smallint,
 Semester varchar(10), Internal_mark int,External_mark int,Course_Type varchar(10));
 DESC COURSE;
-CREATE TABLE STUDENT_MARK(Reg_No varchar(10) primary key,Course_IDvarchar(15),Student_Internal int not null,Student_External int not null, 
+CREATE TABLE STUDENT_MARK(Reg_No varchar(10) primary key,Course_ID varchar(15),Student_Internal int not null,Student_External int not null, 
 foreign key (Course_ID)references course(Course_ID));
 INSERT INTO COURSE VALUES('mca1','MCA',200,4,'s2',45,55,'Integrated'),('mca2','MCA',201,6,'s4',40,60,'Regular'),('bca3','BCA',202,8,'s3',
 60,40,'Regular'),('btech4','Btech',203,6,'s4',50,50,'Lateral');
