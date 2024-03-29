@@ -7,6 +7,7 @@ CREATE TABLE STUDENT_MARK(Reg_No varchar(10) primary key,Course_ID varchar(15),S
 foreign key (Course_ID)references course(Course_ID));
 INSERT INTO COURSE VALUES('mca1','MCA',200,4,'s2',45,55,'Integrated'),('mca2','MCA',201,6,'s4',40,60,'Regular'),('bca3','BCA',202,8,'s3',
 60,40,'Regular'),('btech4','Btech',203,6,'s4',50,50,'Lateral');
+SET FOREIGN_KEY_CHECKS=0;
 INSERT INTO STUDENT_MARK VALUES('b123','b011',35,40),('m141','m111',28,42),('mi768','mi313',34,52),('mt836','mt811',55,48),('bt67f','b0110'
 ,78,51);
 SELECT * FROM STUDENT_MARK;
