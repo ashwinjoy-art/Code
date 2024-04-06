@@ -15,6 +15,3 @@ UPDATE t_school SET Number_Of_Students = 150 WHERE ID = 5;
 COMMIT;
 SAVEPOINT UPDATION;
 SELECT * FROM t_school;
-
-
-SELECT * FROM t_school;
