@@ -7,8 +7,7 @@ public class ASCII
 		System.out.print("Enter the character: ");
 		char word = sc.next().charAt(0);  
 		int value = (int) word;
-		sc.close();
 		System.out.println("ASCII value: "+ value);
-		
+		sc.close();
 	 }
 }
