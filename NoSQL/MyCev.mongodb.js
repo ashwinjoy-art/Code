@@ -58,4 +58,3 @@ db.MCA.find().sort({age:1})
 db.MCA.deleteOne({name:"Adith"})
 db.MCA.drop()
 db.dropDatabase()
-db.MCA.find().skip(2).toArray();
