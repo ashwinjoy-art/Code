@@ -7,8 +7,9 @@ echo "Enter the first number: "
 read num1
 echo "Enter the second number: "
 read num2
-
+----------------------------------
 echo "SELECT ANY OPERATIONS BELOW"
+----------------------------------
 echo "1. Addition"
 echo "2. Subtraction"
 echo "3. Multiplication"
