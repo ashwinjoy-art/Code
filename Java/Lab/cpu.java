@@ -1,11 +1,14 @@
-public class cpu {
+public class Cpu 
+{
     int price;
 
-    class processor {
+    class processor 
+    {
         int cores;
         String producer;
 
-        processor(int noC, String manu) {
+        processor(int noC, String manu) 
+        {
             cores = noC;
             producer = manu;
         }
@@ -17,11 +20,13 @@ public class cpu {
         }
     }
 
-    static class ram {
+    static class ram 
+    {
         int mem;
         String manuf;
 
-        ram(int memory, String producer) {
+        ram(int memory, String producer) 
+        {
             mem = memory;
             manuf = producer;
         }
@@ -33,12 +38,12 @@ public class cpu {
         }
     }
 
-public static void main(String[] args)
-{
-cpu.ram obj1= new cpu.ram(8,"Intel");
-cpu obj2 = new cpu();
-cpu.processor obj3 = obj2.new processor(8,"Samsung");
-obj1.display();
-obj3.display();
-}
+    public static void main(String[] args) 
+    {
+        Cpu.ram obj1 = new Cpu.ram(8, "Intel");
+        Cpu obj2 = new Cpu();
+        Cpu.processor obj3 = obj2.new processor(8, "Samsung");
+        obj1.display();
+        obj3.display();
+    }
 }
