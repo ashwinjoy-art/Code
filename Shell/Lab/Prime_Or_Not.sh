@@ -3,7 +3,7 @@
 echo "Enter a number:"
 read number
 
-if [ $number -lt 2 ]; then
+if (( $number -lt 2 )); then
     echo "$number is not a prime number."
     exit
 fi
