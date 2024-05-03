@@ -26,6 +26,7 @@ db.USER.insertMany([
         "dob":"2001-03-11"
     },
 ])
+
 db.createCollection("book")
 db.book.insertMany([
     {
@@ -59,13 +60,16 @@ db.book.insertMany([
         "author":"Guido Van"
     },
 ])
+
 db.book.updateOne(
     { "b_name": "android" },
     { $set: { "name": "ANDROID OS" } } 
 );
+
 db.book.find(
     { "b_name": { $in: ["dbms", "python"] } }
 );
+
 db.book.find().sort({ "author": -1 });
 
  

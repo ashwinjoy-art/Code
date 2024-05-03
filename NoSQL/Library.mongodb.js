@@ -34,6 +34,7 @@ db.book.insertMany([
         "bkcopies":5
     },
 ])
+
 db.createCollection("student")
 db.student.insertMany([
     {
@@ -67,13 +68,16 @@ db.student.insertMany([
         "region":"EKM"
     },
 ])
+
 db.student.updateOne(
     { "name": "JAMES" }, 
     { $set: { "region": "TVM" } } 
 );
+
 db.student.find(
    { "region": { $in: ["EKM", "TVM"] } }
 );
+
 db.student.find().sort({ "name": 1 });
 
  
