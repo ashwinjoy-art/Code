@@ -56,13 +56,14 @@ VALUES(
         50,
         "cems@gmail.com"
     );
+    
 SELECT * FROM t_school;
 START TRANSACTION;
 UPDATE t_school SET Number_Of_Students = 100 WHERE ID = 5;
-COMMIT;
-SAVEPOINT INSERTION;
 SELECT * FROM t_school;
+SAVEPOINT INSERTION;
 UPDATE t_school SET Number_Of_Students = 150 WHERE ID = 5;
-COMMIT;
 SAVEPOINT UPDATION;
+ROLLBACK TO INSERTION;
+COMMIT;
 SELECT * FROM t_school;
