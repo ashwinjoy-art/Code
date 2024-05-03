@@ -1,4 +1,4 @@
-use MARKETING;
+use Marketing;
 db.createCollection("EMPLOYEE");
 db.EMPLOYEE.insertMany([
     {

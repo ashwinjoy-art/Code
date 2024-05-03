@@ -1,4 +1,4 @@
-use EMPMAPPING;
+use Empmapping;
 db.createCollection("EMPLOYEE");
 db.EMPLOYEE.insertMany([
     {
