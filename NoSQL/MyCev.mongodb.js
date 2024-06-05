@@ -52,6 +52,7 @@ db.MCA.insertMany([
         "age":21
     }
 ])
+
 db.MCA.find().limit(5)
 db.MCA.find().skip(2)
 db.MCA.find().sort({age:1})

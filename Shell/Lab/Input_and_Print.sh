@@ -11,7 +11,6 @@ read roll_number
 echo "Enter your marks:"
 read marks
 
-# Print the input details
 echo "Name: $name"
 echo "Roll Number: $roll_number"
 echo "Marks: $marks"

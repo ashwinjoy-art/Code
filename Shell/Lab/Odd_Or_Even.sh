@@ -3,16 +3,8 @@
 echo "Enter a number:"
 read number
 
-remainder=$((number % 2))
-
-case $remainder in
-    0)
-        echo "$number is even."
-        ;;
-    1)
-        echo "$number is odd."
-        ;;
-    *)
-        echo "Invalid input."
-        ;;
-esac
+if ((number % 2 == 0)); then
+    echo "$number is even."
+else
+    echo "$number is odd."
+fi

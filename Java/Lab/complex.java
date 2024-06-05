@@ -1,25 +1,30 @@
-public class complex {
+public class Complex 
+{
     int r;
     int i;
 
-    complex(int real, int img) {
+    Complex(int real, int img) 
+    {
         r = real;
         i = img;
     }
 
-    void display() {
+    void display() 
+    {
         System.out.println(r + "+" + i + "i");
     }
 
-    static void add(int r1, int i1, int r2, int i2) {
+    static void add(int r1, int i1, int r2, int i2) 
+    {
         r1 = r1 + r2;
         i1 = i1 + i2;
         System.out.println("After Addition = " + r1 + "+" + i1 + "i");
     }
 
-    public static void main(String[] args) {
-        complex first = new complex(5, 4);
-        complex second = new complex(7, 9);
+    public static void main(String[] args) 
+    {
+        Complex first = new Complex(5, 4);
+        Complex second = new Complex(7, 9);
         System.out.println("Complex Numbers are:");
         first.display();
         second.display();
