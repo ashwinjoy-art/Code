@@ -66,9 +66,12 @@ db.book.updateOne(
     { $set: { "name": "ANDROID OS" } } 
 );
 
-db.book.find(
-    { "b_name": { $in: ["dbms", "python"] } }
-);
+db.BOOK.find({
+    $or: [
+        {"b_name": "DBMS"},
+        {"b_name": "python"}
+    ]
+});
 
 db.book.find().sort({ "author": -1 });
 
