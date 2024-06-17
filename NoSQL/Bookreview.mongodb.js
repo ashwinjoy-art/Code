@@ -27,8 +27,8 @@ db.USER.insertMany([
     },
 ])
 
-db.createCollection("book")
-db.book.insertMany([
+db.createCollection("BOOK")
+db.BOOK.insertMany([
     {
         "b_id":201,
         "b_name":"dbms",
@@ -61,9 +61,9 @@ db.book.insertMany([
     },
 ])
 
-db.book.updateOne(
+db.BOOK.updateOne(
     { "b_name": "android" },
-    { $set: { "name": "ANDROID OS" } } 
+    { $set: { "b_name": "ANDROID OS" } }
 );
 
 db.BOOK.find({
@@ -73,6 +73,6 @@ db.BOOK.find({
     ]
 });
 
-db.book.find().sort({ "author": -1 });
+db.BOOK.find().sort({ "author": -1 });
 
  

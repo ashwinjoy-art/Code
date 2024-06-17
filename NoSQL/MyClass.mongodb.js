@@ -94,8 +94,10 @@ db.db_students.insertMany([
 ])
 
 db.db_students.find()
+
 db.db_students.updateOne(
     { "student_name": "Yedhu", "mark.subject": "Physics" },
     { $set: { "mark.$.mark": 40 } }
 )
+
 db.db_students.deleteOne({ "student_rollno": 1 })
