@@ -29,12 +29,12 @@ public class CPU
             this.manufacturer = manufacturer;
         }
 
-void display()
-{
-System.out.println("\nRAM info");
-System.out.println("Memory = " + memory + " GB");
-System.out.println("Manufacturer = " + manufacturer + "\n");
-}
+        void display()
+        {
+            System.out.println("\nRAM info");
+            System.out.println("Memory = " + memory + " GB");
+            System.out.println("Manufacturer = " + manufacturer + "\n");
+        }
     }
 
     public static void main(String[] args) 
