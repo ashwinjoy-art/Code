@@ -11,7 +11,8 @@ public class CPU
             this.manufacturer = manufacturer;
         }
 
-        void display() {
+        void display() 
+        {
             System.out.println("\nProcessor info");
             System.out.println("No. of Cores = " + cores);
             System.out.println("Manufacturer = " + manufacturer + "\n");
