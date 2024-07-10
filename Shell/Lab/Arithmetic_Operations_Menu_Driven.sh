@@ -32,5 +32,5 @@ do
            exit;;
         *) echo "Invalid option";;
     esac
-    echo -n "Enter your menu choice [1-5]: "
+    echo -n "Enter your menu choice [1-5]: "
 done
