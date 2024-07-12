@@ -1,7 +1,5 @@
 name: GitHub Actions
 
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
 on:
   push:
     branches:
@@ -44,13 +42,13 @@ jobs:
           fi
 
       - name: Create WSL Branch if it Doesn't Exist
-        if: env.branch_exists == 'false'
+        if: steps.check-branch.outputs.branch_exists == 'false'
         run: |
           git checkout -b wsl
           git push origin wsl
 
       - name: Checkout WSL Branch
-        if: env.branch_exists == 'true'
+        if: steps.check-branch.outputs.branch_exists == 'true'
         run: |
           git checkout wsl
 
