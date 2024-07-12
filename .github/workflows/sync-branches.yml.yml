@@ -17,8 +17,8 @@ jobs:
 
       - name: Copy Changes to WSL Branch
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "ashwinjoy-art"
+          git config --global user.email "ashwinjoy530@gmail.com"
           git checkout wsl
           git merge master --no-ff --commit -m "Syncing changes from master to wsl"
           git push origin wsl
@@ -30,6 +30,6 @@ jobs:
 
       - name: Push Changes to WSL
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "ashwinjoy-art"
+          git config --global user.email "ashwinjoy530@gmail.com"
           git push origin wsl
