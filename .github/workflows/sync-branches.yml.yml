@@ -1,4 +1,6 @@
-name: Sync Changes from Master to WSL
+name: GitHub Actions
+
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
   push:
@@ -6,30 +8,53 @@ on:
       - master
 
 jobs:
-  sync-branches:
-    runs-on: ubuntu-latest
-
+  Explore-GitHub-Actions:
+    runs-on: windows-latest
     steps:
-      - name: Checkout Master Branch
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      
+      - name: Check out repository code
         uses: actions/checkout@v4
         with:
           ref: master
-
-      - name: Copy Changes to WSL Branch
+      
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      
+      - name: List files in the repository
+        run: |
+          dir ${{ github.workspace }}
+      
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      
+      - name: Configure Git
         run: |
           git config --global user.name "ashwinjoy-art"
           git config --global user.email "ashwinjoy530@gmail.com"
-          git checkout wsl
-          git merge master --no-ff --commit -m "Syncing changes from master to wsl"
+
+      - name: Check if WSL Branch Exists
+        id: check-branch
+        run: |
+          if git show-ref --verify --quiet refs/heads/wsl; then
+            echo "branch_exists=true" >> $GITHUB_ENV
+          else
+            echo "branch_exists=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create WSL Branch if it Doesn't Exist
+        if: env.branch_exists == 'false'
+        run: |
+          git checkout -b wsl
           git push origin wsl
 
-      - name: Checkout WSL Branch and Push Changes
-        uses: actions/checkout@v4
-        with:
-          ref: wsl
-
-      - name: Push Changes to WSL
+      - name: Checkout WSL Branch
+        if: env.branch_exists == 'true'
         run: |
-          git config --global user.name "ashwinjoy-art"
-          git config --global user.email "ashwinjoy530@gmail.com"
+          git checkout wsl
+
+      - name: Merge Master into WSL
+        run: |
+          git merge master --no-ff --commit -m "Syncing changes from master to wsl"
           git push origin wsl
