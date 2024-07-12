@@ -1,0 +1,35 @@
+name: Sync Changes from Master to WSL
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Master Branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Copy Changes to WSL Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout wsl
+          git merge master --no-ff --commit -m "Syncing changes from master to wsl"
+          git push origin wsl
+
+      - name: Checkout WSL Branch and Push Changes
+        uses: actions/checkout@v4
+        with:
+          ref: wsl
+
+      - name: Push Changes to WSL
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git push origin wsl
