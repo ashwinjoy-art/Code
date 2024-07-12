@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "Enter the paths of two files:"
+echo "Enter the path of the files to check: "
 read file1 file2
 
 if cmp -s "$file1" "$file2"; then

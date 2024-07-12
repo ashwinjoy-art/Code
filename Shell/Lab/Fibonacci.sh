@@ -1,15 +1,15 @@
 #!/usr/bin/bash
 
 echo "Enter the number of terms in Fibonacci series:"
-read num_terms
+read n
 
 a=0
 b=1
 
-echo "Fibonacci series up to $num_terms terms:"
+echo "Fibonacci series up to $n terms:"
 echo -n "$a $b "
 
-for ((i=2; i<num_terms; i++)); do
+for ((i=2; i<n; i++)); do
     fib=$((a + b))
     echo -n "$fib "
     a=$b
