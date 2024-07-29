@@ -12,8 +12,10 @@ void main()
   sumDef(firstNumber: 100,secondNumber: 200,thirdNumber:30); //default parameter
 
   sumFunction(23, 24, sumParameter); //function pass itself as argument
-
-
+  sumFunction(23, 24, (int f,int s)
+  {
+    print('Function sum ${f+s}'); // Calling sumFunction with two integers and an anonymous function
+  },);
 }
 
 void sum()
@@ -28,7 +30,7 @@ void sumParameter(int a,int b) //there is no method overloading in dart
 
 int sumReturn(int a, int b) //integer is returning so we use int instead of void
 {
-  return a+b;
+  return a+b;               //finding the sum of two numbers and returning
 }
 
 void sumReq({int? firstNumber, int? secondNumber}) //can be null or an integer
@@ -82,3 +84,9 @@ void sumFunction(int a, int b, void Function(int,int) customSum) //calling sumFu
 {                                                                //two parameter functions
   customSum(a,b); //two values will be sended to the sumFunction ,,then call that function using 
 }
+//Anonymous Function
+//above part the function sumFunction is called and the value 23,24 is send back to the int a and int b then
+//value is send back to function calling part and it will add and print as function sum 47
+//Define the sumFunction which takes two integers (a and b) and a custom function (customSum)
+//call the custom function with the provided integers
+
