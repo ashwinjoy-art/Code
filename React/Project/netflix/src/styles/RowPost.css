@@ -1,0 +1,21 @@
+.row{
+    margin-left: 20px;
+    color: #fff;
+}
+
+.posters{
+    display: flex; /* show as row ways if multiple image is there */
+    padding: 20px;
+    overflow-x: scroll; /* To provide scrolling */
+    overflow-y: hidden;
+    scrollbar-width: none; /* for Firefox hiding */
+}
+
+.posters::-webkit-scrollbar{ /* It is class ..Here we used it to hide the scroll bar*/
+    display: none;
+}
+
+.poster{
+    max-height: 250px;
+    margin-right: 10px;
+}
