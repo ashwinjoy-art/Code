@@ -51,3 +51,67 @@
         we can access different size of images from this like
         /w200/
         /w400/ ...etc
+
+# Axios
+
+    Axios is a popular JavaScript library used for making HTTP requests from a web browser or Node. js.
+
+ Axios Instance
+
+    creating axios instance
+    URL - https://www.npmjs.com/package/axios#creating-an-instance
+
+    const instance = axios.create({
+        baseURL: 'https://some-domain.com/api/',
+    });
+
+
+# npm modules 
+
+    npm i axios
+
+# React Youtube Module
+
+    npm i react-youtube
+
+    Simple React component acting as a thin layer over the YouTube IFrame Player API. This has autoplay and other features
+            
+        https://www.npmjs.com/package/react-youtube
+
+    Usage
+    
+<YouTube
+  videoId={string}                  // defaults -> ''
+  id={string}                       // defaults -> ''
+  className={string}                // defaults -> ''
+  iframeClassName={string}          // defaults -> ''
+  style={object}                    // defaults -> {}
+  title={string}                    // defaults -> ''
+  loading={string}                  // defaults -> undefined
+  opts={obj}                        // defaults -> {}
+  onReady={func}                    // defaults -> noop
+  onPlay={func}                     // defaults -> noop
+  onPause={func}                    // defaults -> noop
+  onEnd={func}                      // defaults -> noop
+  onError={func}                    // defaults -> noop
+  onStateChange={func}              // defaults -> noop
+  onPlaybackRateChange={func}       // defaults -> noop
+  onPlaybackQualityChange={func}    // defaults -> noop
+/>
+
+# TMDB Movie Trailer API
+
+    https://developer.themoviedb.org/reference/movie-videos
+
+    end point
+    copy the link
+    
+        https://api.themoviedb.org/3/movie/{movie_id}/videos?language=en-US'
+
+    put it in the postman app replace {movie_id} with id (which we can found from the console in browser)
+    send request and we will receive a response which contains key for youtube videos (videos related to the movie) 
+    key-> "nY5IAhjTclY" (different key for different videos)
+    play any youtube video replace the key after 'v=' the will play videos officially related to the movie 
+
+
+
