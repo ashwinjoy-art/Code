@@ -14,6 +14,7 @@ function App() {
             <Route path='/about' element={<About/>} />
             <Route path='/profile' element={<Profile data={state}/>} />
           </Routes>
+          {setState} {/* dummy */}
     </div>
   );
 }
