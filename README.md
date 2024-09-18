@@ -1,5 +1,4 @@
-#KTU
-#MCA 2023-25
-#Coding
+
+# Coding
 #Learning
 #Lab Experiments
