@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Explicit Intents"
 include(":app")
- 
