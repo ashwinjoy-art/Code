@@ -1,0 +1,40 @@
+button{
+    background: goldenrod;
+}
+
+#para1{
+    color: red;
+}
+
+#para2{
+    color: violet;
+}
+
+.content{
+    color: blue;
+    background: lightblue;
+}
+
+.outer-box{
+    width: 300px;
+    height: 200px;
+    background: slateblue;
+    border: 1px solid;
+    border-color: red;
+}
+
+.white{
+    color: white;
+}
+
+.box{
+    margin-left: 100px;
+    padding-left: 50px;
+}
+
+.inner-div{
+    margin: 10px;
+    background: lightslategray;
+    width: 200px;
+    height: 100px;
+}
