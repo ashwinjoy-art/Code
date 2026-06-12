@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 # Load the dataset
-data = pd.read_csv('C:/Users/ashwi/Documents/Code/Data Science/Lab/KNN/iris.csv')
+data = pd.read_csv('iris.csv')
 
 # Preview the data
 print("First few rows of the dataset:")
